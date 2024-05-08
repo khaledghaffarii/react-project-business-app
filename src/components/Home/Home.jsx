@@ -7,19 +7,28 @@ import {
   faShieldHalved,
   faChartArea,
 } from "@fortawesome/free-solid-svg-icons";
+import { detectMobileOrTablet } from "../../utils";
 
 export default function Home() {
   // Icons
   const faChartIcon = <FontAwesomeIcon icon={faChartLine} />;
   const faShieldIcon = <FontAwesomeIcon icon={faShieldHalved} />;
   const faChartAreaIcon = <FontAwesomeIcon icon={faChartArea} />;
-
+  var deviceInfo = detectMobileOrTablet();
+  console.log("🚀 ~ Home ~ deviceInfo:", deviceInfo);
   return (
     <>
       <section id="home">
         <div className="banner_image"></div>
         <div className="container">
-          <div className="banner_outer">
+          <div
+            className="banner_outer"
+            style={{
+              display: "flex",
+              flexDirection:
+                deviceInfo.isTablet || deviceInfo.isMobile ? "column" : "row",
+            }}
+          >
             <div className="col">
               <h3 className="title">
                 WE PROMOTE YOUR <span>BUSINESS</span>
@@ -37,23 +46,25 @@ export default function Home() {
             <div className="col">
               <div className="sub_banner_image">
                 <img
-                  style={{ width: 1540 }}
+                  style={{
+                    height: deviceInfo.isMobile ? 500 : 650,
+                  }}
                   src={BannerImage}
                   alt="Banner_image"
                 />
               </div>
-              <div className="banner_style_1">
+              {/* <div className="banner_style_1">
                 {faChartIcon}
                 <h4>Bubsiness Analysis</h4>
               </div>
-              {/* <div className="banner_style_1 banner_style_2">
+              <div className="banner_style_1 banner_style_2">
                 {faShieldIcon}
                 <h4>99.9% Success</h4>
-              </div> */}
+              </div>
               <div className="banner_style_1 banner_style_3">
                 {faChartAreaIcon}
                 <h4>Strategy</h4>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -9,9 +9,13 @@ import {
   faHouseLaptop,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import AboutImage from "../../assets/about/about2.jpg";
+import AboutImage from "../../assets/about/webprofesional.webp";
+import { detectMobileOrTablet } from "../../utils";
 
 export default function About() {
+  var deviceInfo = detectMobileOrTablet();
+  console.log("🚀 ~ About ~ deviceInfo:", deviceInfo);
+
   // Icons
   const faBusinessIcon = <FontAwesomeIcon icon={faBusinessTime} />;
   const faChartPieIcon = <FontAwesomeIcon icon={faChartPie} />;
@@ -68,7 +72,10 @@ export default function About() {
             <div className="about_col">
               <div className="about_image">
                 <img
-                  style={{ height: 450 }}
+                  style={{
+                    height: deviceInfo.isMobile ? 200 : 450,
+                    width: !deviceInfo.isTablet ? 700 : 800,
+                  }}
                   src={AboutImage}
                   alt="about"
                   className="about_main"
