@@ -1,8 +1,10 @@
 import React from "react";
 import "./Blog.css";
-import BlogImage from "../../assets/blog/blog2.jpeg";
+import BlogImage from "../../assets/blog/TextToImage_14_20240508.jpeg";
+import { detectMobileOrTablet } from "../../utils";
 
 export default function Blog() {
+  var deviceInfo = detectMobileOrTablet();
   return (
     <>
       <section id="blog">
@@ -23,10 +25,13 @@ export default function Blog() {
                 </a>
               </div>
             </div>
-            <div className="blog_col">
+            <div
+              className="blog_col"
+              style={{ width: deviceInfo.isMobile ? 900 : 400 }}
+            >
               <div className="blog_image">
                 <img
-                  style={{ height: 400, width: 700 }}
+                  style={{ height: 400, width: 400 }}
                   src={BlogImage}
                   alt="Blog"
                 />
