@@ -25,10 +25,7 @@ export default function Blog() {
                 </a>
               </div>
             </div>
-            <div
-              className="blog_col"
-              style={{ width: deviceInfo.isMobile ? 900 : 400 }}
-            >
+            <div className="blog_col">
               <div className="blog_image">
                 <img
                   style={{ height: 400, width: 400 }}
