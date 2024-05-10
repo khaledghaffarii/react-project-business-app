@@ -1,0 +1,29 @@
+.language-selector {
+  display: inline-block;
+}
+
+.flag-icon {
+  width: 30px; /* Ajustez la taille des drapeaux selon vos besoins */
+  height: 25px;
+  margin-right: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.language-selector-select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none; /* Permet de masquer la flèche de sélection par défaut des navigateurs */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z" fill="#000"/></svg>'); /* Ajoutez une icône personnalisée pour la flèche de sélection */
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-left: 30px; /* Ajoutez de l'espace pour le drapeau à gauche du texte */
+}
+
+.language-option {
+  padding-left: 0; /* Réinitialisez la marge gauche pour les options */
+}

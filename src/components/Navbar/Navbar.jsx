@@ -4,11 +4,13 @@ import { Link } from "react-scroll";
 import Logo from "../../assets/logo/logo5.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "./LanguageSelector";
 
 export default function Navbar() {
   // Mobile Menu State
   const [sidenav, setSidenav] = useState(false);
-
+  const { t } = useTranslation();
   // Desktop Fixed Menu
   const [sticky, setSticky] = useState(false);
 
@@ -43,34 +45,38 @@ export default function Navbar() {
             <div className="navbar_toggler" onClick={sidenavShow}>
               {menuIcon}
             </div>
-            <div className={`menu_items ${sidenav === true ? "active" : ""}`}>
-              <ul>
+            <div
+              style={{ display: "flex", flexDirection: "row" }}
+              className={`menu_items ${sidenav === true ? "active" : ""}`}
+            >
+              <ul style={{ marginTop: 7 }}>
                 <li>
                   <Link activeClass="active" to="home" spy={true} smooth={true}>
-                    Home
+                    {t("navbar.home")}
                   </Link>
                 </li>
                 <li>
                   <Link to="about" spy={true} smooth={true}>
-                    About US
+                    {t("navbar.about")}
                   </Link>
                 </li>
                 <li>
                   <Link to="services" spy={true} smooth={true}>
-                    Services
+                    {t("navbar.service")}
                   </Link>
                 </li>
                 <li>
                   <Link to="blog" spy={true} smooth={true}>
-                    Blog
+                    {t("navbar.blog")}
                   </Link>
                 </li>
                 <li>
                   <Link to="contact" spy={true} smooth={true}>
-                    Contact US
+                    {t("navbar.contact")}
                   </Link>
                 </li>
               </ul>
+              <LanguageSelector />
             </div>
           </nav>
         </div>

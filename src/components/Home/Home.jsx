@@ -8,14 +8,15 @@ import {
   faChartArea,
 } from "@fortawesome/free-solid-svg-icons";
 import { detectMobileOrTablet } from "../../utils";
-
+import { useTranslation } from "react-i18next"; // Importez useTranslation
 export default function Home() {
+  const { t } = useTranslation();
   // Icons
   const faChartIcon = <FontAwesomeIcon icon={faChartLine} />;
   const faShieldIcon = <FontAwesomeIcon icon={faShieldHalved} />;
   const faChartAreaIcon = <FontAwesomeIcon icon={faChartArea} />;
   var deviceInfo = detectMobileOrTablet();
-  console.log("🚀 ~ Home ~ deviceInfo:", deviceInfo);
+
   return (
     <>
       <section id="home">
@@ -30,16 +31,11 @@ export default function Home() {
             }}
           >
             <div className="col">
-              <h3 className="title">
-                WE PROMOTE YOUR <span>BUSINESS</span>
-              </h3>
-              <p>
-                Nemo enim ipsam oluptatem quia reoluptas sit aspernatur aut odit
-                aut fugit, sed quia consequuntur magni dolores eosqui ratione.
-              </p>
+              <h3 className="title">{t("home.promotedContent")}</h3>
+              <p>{t("home.promotedContentDescription")}</p>
               <div className="btn_wrapper">
                 <a className="btn" href="/">
-                  Get Started
+                  {t("home.getStarted")}
                 </a>
               </div>
             </div>
@@ -53,18 +49,6 @@ export default function Home() {
                   alt="Banner_image"
                 />
               </div>
-              {/* <div className="banner_style_1">
-                {faChartIcon}
-                <h4>Bubsiness Analysis</h4>
-              </div>
-              <div className="banner_style_1 banner_style_2">
-                {faShieldIcon}
-                <h4>99.9% Success</h4>
-              </div>
-              <div className="banner_style_1 banner_style_3">
-                {faChartAreaIcon}
-                <h4>Strategy</h4>
-              </div> */}
             </div>
           </div>
         </div>

@@ -1,0 +1,26 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "hello": "Hello",
+    "english": "Englich",
+    "french": "French"
+  },
+  "home": {
+    "title": "Page d'accueil",
+    "description": "Description de la page d'accueil",
+    "promotedContent": "WE PROMOTE YOUR BUSINESS",
+    "promotedContentDescription": "Nemo enim ipsam oluptatem quia reoluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eosqui ratione.",
+    "getStarted": "Get Started"
+  },
+  "about": {
+    "title": "About",
+    "content": "About page content"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "service": "Service",
+    "blog": "Blog",
+    "contact": "Contact Us"
+  }
+}
