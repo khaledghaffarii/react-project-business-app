@@ -1,83 +1,87 @@
-import React from 'react';
-import './Services.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLaptopCode, faChartBar, faCopy, faMarker, faUserGear, faCoins } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import "./Services.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLaptopCode,
+  faChartBar,
+  faCopy,
+} from "@fortawesome/free-solid-svg-icons";
+import videoSource from "../../assets/banner/video.mp4";
 
-export default function Services() {
+const servicesData = [
+  {
+    icon: faLaptopCode,
+    title: "Cloud Computing",
+    description: "Lorem ipsum dolor sit amet sed consectetur adipisicing elit.",
+    number: "01",
+    color: "pramary",
+  },
+  {
+    icon: faChartBar,
+    title: "Business Strategy",
+    description: "Lorem ipsum dolor sit amet sed consectetur adipisicing elit.",
+    number: "02",
+    color: "pramary",
+  },
+  {
+    icon: faCopy,
+    title: "Reports Analysis",
+    description: "Lorem ipsum dolor sit amet sed consectetur adipisicing elit.",
+    number: "03",
+    color: "pramary",
+  },
+];
 
-    // Icons
-    const faLaptopCodeIcon = <FontAwesomeIcon icon={faLaptopCode} />
-    const faChartBarIcon = <FontAwesomeIcon icon={faChartBar} />
-    const faCopyIcon = <FontAwesomeIcon icon={faCopy} />
-    const faMarkerIcon = <FontAwesomeIcon icon={faMarker} />
-    const faUserGearIcon = <FontAwesomeIcon icon={faUserGear} />
-    const faCoinsIcon = <FontAwesomeIcon icon={faCoins} />
+const Services = () => {
   return (
-    <>
-     <div id="services">
-        <div className="container">
-            <div className="title_headling">
-                <h3>What's Services We Are Offering to Our Customers</h3>
-                <p>Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-            </div>
-            <div className="service_wrapper">
-                <div className="service_box">
-                    <div className="service_icon blue_icon">{faLaptopCodeIcon}</div>
-                    <h4 className="number">01</h4>
-                    <div className="service_content">
-                        <h5>Cloud Computing</h5>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor set.</p>
-                        <a href="/" className="read">Read more</a>
-                    </div>
-                </div> 
-                <div className="service_box">
-                    <div className="service_icon">{faChartBarIcon}</div>
-                    <h4 className="number">02</h4>
-                    <div className="service_content">
-                        <h5>Business Strategy</h5>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor set.</p>
-                        <a href="/" className="read">Read more</a>
-                    </div>
-                </div>
-                <div className="service_box">
-                    <div className="service_icon green_icon">{faCopyIcon}</div>
-                    <h4 className="number">03</h4>
-                    <div className="service_content">
-                        <h5>Reports Analysis</h5>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor set.</p>
-                        <a href="/" className="read">Read more</a>
-                    </div>
-                </div>
-                <div className="service_box">
-                    <div className="service_icon">{faMarkerIcon}</div>
-                    <h4 className="number">04</h4>
-                    <div className="service_content">
-                        <h5>Decision Maker</h5>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor set.</p>
-                        <a href="/" className="read">Read more</a>
-                    </div>
-                </div>
-                <div className="service_box">
-                    <div className="service_icon green_icon">{faUserGearIcon}</div>
-                    <h4 className="number">05</h4>
-                    <div className="service_content">
-                        <h5>Customer Oriented</h5>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor set.</p>
-                        <a href="/" className="read">Read more</a>
-                    </div>
-                </div>
-                <div className="service_box">
-                    <div className="service_icon blue_icon">{faCoinsIcon}</div>
-                    <h4 className="number">06</h4>
-                    <div className="service_content">
-                        <h5>Solution Focused</h5>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit. doloret quas saepe autem, dolor set.</p>
-                        <a href="/" className="read">Read more</a>
-                    </div>
-                </div>
-            </div>
+    <div id="services">
+      <video
+        autoPlay
+        muted
+        loop
+        preload="auto"
+        id="video-background"
+        playsInline
+        src={videoSource}
+      >
+        Your browser does not support the video tag.
+      </video>
+
+      <div className="container">
+        <div className="title_headling">
+          <h3 style={{ color: "#fff" }}>
+            What's Services We Are Offering to Our Customers
+          </h3>
+          <p style={{ color: "#fff" }}>
+            Ut aut reiciendis voluptatibus maiores alias consequatur aut
+            perferendis doloribus asperiores repellat.
+          </p>
         </div>
-     </div>
-    </>
-  )
-}
+        <div className="service_wrapper">
+          {servicesData.map((service, index) => (
+            <div key={index} className="service_box">
+              <div
+                className={`service_icon ${service.color}`}
+                style={{ backgroundColor: service.color }}
+              >
+                <FontAwesomeIcon icon={service.icon} />
+              </div>
+              <h4 className="number">{service.number}</h4>
+              <div className="service_content">
+                <h5 style={{ color: "#fff" }}>{service.title}</h5>
+                <p style={{ color: "#fff", fontSize: 13 }}>
+                  {service.description}
+                </p>
+                <a style={{ color: "#fff" }} href="/" className="read">
+                  Read more
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Services;

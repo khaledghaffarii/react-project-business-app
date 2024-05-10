@@ -81,8 +81,8 @@ export default function About() {
                   className="about_main"
                 />
               </div>
-              <div className="img_info__box">
-                <h6 className="img_info__title">GET A PRICE QUOTE TODAY!</h6>
+              <div class="img_info__box">
+                <h6 class="img_info__title">GET A PRICE QUOTE TODAY!</h6>
                 <p>
                   Nemo enim ipsam oluptatem quia oluptas <br />
                   sit aspernatur aut odit aut fugit.

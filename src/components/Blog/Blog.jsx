@@ -28,7 +28,7 @@ export default function Blog() {
             <div className="blog_col">
               <div className="blog_image">
                 <img
-                  style={{ height: 400, width: 400 }}
+                  style={{ height: 400, width: 600 }}
                   src={BlogImage}
                   alt="Blog"
                 />

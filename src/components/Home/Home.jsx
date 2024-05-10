@@ -30,24 +30,17 @@ export default function Home() {
                 deviceInfo.isTablet || deviceInfo.isMobile ? "column" : "row",
             }}
           >
-            <div className="col">
-              <h3 className="title">{t("home.promotedContent")}</h3>
-              <p>{t("home.promotedContentDescription")}</p>
+            <div>
+              <h1 style={{ color: "#fff" }} className="title">
+                {t("home.promotedContent")}
+              </h1>
+              <p style={{ color: "#fff" }}>
+                {t("home.promotedContentDescription")}
+              </p>
               <div className="btn_wrapper">
                 <a className="btn" href="/">
                   {t("home.getStarted")}
                 </a>
-              </div>
-            </div>
-            <div className="col">
-              <div className="sub_banner_image">
-                <img
-                  style={{
-                    height: deviceInfo.isMobile ? 500 : 650,
-                  }}
-                  src={BannerImage}
-                  alt="Banner_image"
-                />
               </div>
             </div>
           </div>
