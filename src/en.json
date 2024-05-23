@@ -17,10 +17,9 @@
     "content": "About page content"
   },
   "navbar": {
-    "home": "Home",
-    "about": "About",
+    "company": "Company",
     "service": "Service",
-    "blog": "Blog",
+    "sector": "Sector",
     "contact": "Contact Us"
   }
 }

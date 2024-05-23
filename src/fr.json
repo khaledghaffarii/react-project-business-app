@@ -17,10 +17,9 @@
     "content": "Contenu de la page à propos"
   },
   "navbar": {
-    "home": "Accueil",
-    "about": "À propos",
-    "service": "Service",
-    "blog": "Blog",
+    "company": "Entreprise",
+    "service": "Prestations de service",
+    "sector": "Secteur",
     "contact": "Nous contacter"
   }
 }

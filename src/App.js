@@ -8,6 +8,8 @@ import Blog from "./components/Blog/Blog";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import LandingPage from "./landing/LandingPage";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   const [showLandingPage, setShowLandingPage] = useState(true);

@@ -56,7 +56,7 @@ const LanguageSelector = () => {
         options={options}
         onChange={handleChangeLanguage}
         value={options.find((option) => option.value === i18n.language)}
-        styles={customStyles} // Applique les styles personnalisés
+        styles={customStyles}
       />
     </div>
   );
