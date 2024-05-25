@@ -18,7 +18,7 @@
   height: 20vmax;
   margin: 20;
   display: flex;
-  margin-top: 0.95em;
+  margin-top: -1em;
 
   left: 50%;
   transform: translateX(-50%);
@@ -163,7 +163,7 @@
 
           @media (max-width: 992px) {
             display: block;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(248, 12, 12, 0.2);
           }
 
           & a {

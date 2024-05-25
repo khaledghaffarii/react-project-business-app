@@ -67,7 +67,6 @@ export default function Navbar() {
                   {t("navbar.company")}
                 </a>
                 <ul
-                  style={{ width: "80vh" }}
                   class="dropdown-menu custom-dropdown-menu"
                   aria-labelledby="navbarDropdown"
                 >
@@ -90,6 +89,7 @@ export default function Navbar() {
                       >
                         Entreprise:
                       </h5>
+
                       <p
                         class="fs-6 "
                         // style="max-width: 250px; white-space: normal;"
@@ -108,7 +108,7 @@ export default function Navbar() {
                   </li>
                   <div class="row" style={{ marginTop: 25 }}>
                     <div class="col-md-12 mx-5">
-                      <ul class="list-unstyled">
+                      <ul>
                         <li>
                           <strong>À propos de nous</strong>
                         </li>
@@ -212,7 +212,7 @@ export default function Navbar() {
                       </p>
                     </div>
                   </li>
-                  <div class="row">
+                  <div class="row w-100 m-1">
                     <div class="col-md-4">
                       <ul class="list-unstyled ">
                         <li>
@@ -271,7 +271,7 @@ export default function Navbar() {
                     <div class="col-md-4">
                       <ul class="list-unstyled">
                         <li>
-                          <strong>RUN SERVICES</strong>
+                          <strong>Services de Maintenance</strong>
                         </li>
                         <li style={{ marginTop: 10 }}>
                           <a
@@ -282,7 +282,7 @@ export default function Navbar() {
                               fontSize: 15,
                             }}
                           >
-                            Maintenance préventive
+                            Maintenance Préventive
                           </a>
                         </li>
                         <li style={{ marginTop: 10 }}>
@@ -306,7 +306,7 @@ export default function Navbar() {
                               fontSize: 15,
                             }}
                           >
-                            Maintenance évolutive
+                            Maintenance Évolutive
                           </a>
                         </li>
                         <li style={{ marginTop: 10 }}>
@@ -318,7 +318,7 @@ export default function Navbar() {
                               fontSize: 15,
                             }}
                           >
-                            Webmastering
+                            Gestion de Contenu Web
                           </a>
                         </li>
                         <li style={{ marginTop: 10 }}>
@@ -330,7 +330,7 @@ export default function Navbar() {
                               fontSize: 15,
                             }}
                           >
-                            Infogérance et Hosting
+                            Hébergement
                           </a>
                         </li>
                         <li style={{ marginTop: 10 }}>
@@ -342,7 +342,7 @@ export default function Navbar() {
                               fontSize: 15,
                             }}
                           >
-                            UI/UX Design
+                            Conception UI/UX
                           </a>
                         </li>
                       </ul>
@@ -419,72 +419,314 @@ export default function Navbar() {
               </li>
 
               <li class="nav-item dropdown ">
-                <a
-                  class="nav-link  fs-4 p-md-5 m-1"
-                  href="#"
-                  // role="button"
-                  // data-bs-toggle="dropdown"
-                  // aria-expanded="false"
-                >
+                <a class="nav-link  fs-4 p-md-5 m-1" href="#">
                   {t("navbar.sector")}
                 </a>
                 <ul
                   class="dropdown-menu custom-dropdown-menu"
                   aria-labelledby="navbarDropdown"
                 >
-                  <li>
-                    <a class="dropdown-item fs-5" href="#">
-                      Action
-                    </a>
+                  <li class="dropdown-header d-none d-md-flex">
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        marginTop: 100,
+                      }}
+                      class="d-flex"
+                    >
+                      <h5
+                        class="mb-0"
+                        style={{ alignItems: "left", margin: 15, fontSize: 25 }}
+                      >
+                        Secteur :
+                      </h5>
+                      <p
+                        class="fs-6"
+                        style={{
+                          whiteSpace: "normal",
+                          maxWidth: 750,
+                          color: "black",
+                          fontWeight: "400",
+                          margin: 16,
+                        }}
+                      >
+                        Chez CapitalData, nous nous engageons à fournir des
+                        logiciels de gestion sur mesure et des services de
+                        qualité supérieure pour soutenir et améliorer votre
+                        activité.
+                      </p>
+                    </div>
                   </li>
-                  <li>
-                    <a class="dropdown-item fs-5" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider fs-5"></hr>
-                  </li>
-                  <li>
-                    <a class="dropdown-item fs-5" href="#">
-                      Something else here
-                    </a>
-                  </li>
+                  <div class="row m-1 w-100">
+                    <div class="col-md-6">
+                      <ul class="list-unstyled">
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Technologies de l'Information
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Soins de Santé
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Services financiérs
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Éducation
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Industrie
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <ul class="list-unstyled">
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Commerce de Détail
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Transport et Logistique
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Énergie et Environnement
+                          </a>
+                        </li>
+
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Services Publics
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Télécommunications
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </ul>
               </li>
 
               <li class="nav-item dropdown ">
-                <a
-                  class="nav-link  fs-4 p-md-5 m-1"
-                  href="#"
-                  // role="button"
-                  // data-bs-toggle="dropdown"
-                  // aria-expanded="false"
-                >
+                <a class="nav-link  fs-4 p-md-5 m-1" href="#">
                   {t("navbar.contact")}
                 </a>
                 <ul
                   class="dropdown-menu custom-dropdown-menu"
                   aria-labelledby="navbarDropdown"
                 >
-                  <li>
-                    <a class="dropdown-item fs-5" href="#">
-                      Action
-                    </a>
+                  <li class="dropdown-header d-none d-md-flex">
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        marginTop: 100,
+                      }}
+                      class="d-flex"
+                    >
+                      <h5
+                        class="mb-0"
+                        style={{ alignItems: "left", margin: 15, fontSize: 25 }}
+                      >
+                        Contactez-nous :
+                      </h5>
+                      <p
+                        class="fs-6"
+                        style={{
+                          whiteSpace: "normal",
+                          maxWidth: 750,
+                          color: "black",
+                          fontWeight: "400",
+                          margin: 16,
+                        }}
+                      >
+                        Chez CapitalData, nous sommes là pour répondre à toutes
+                        vos questions et vous assister dans vos projets. Que
+                        vous ayez besoin d'un devis, de support client,
+                        d'assistance technique, ou que vous souhaitiez prendre
+                        rendez-vous, discuter avec notre service commercial.
+                      </p>
+                    </div>
                   </li>
-                  <li>
-                    <a class="dropdown-item fs-5" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider fs-5"></hr>
-                  </li>
-                  <li>
-                    <a class="dropdown-item fs-5" href="#">
-                      Something else here
-                    </a>
-                  </li>
+                  <div class="row m-1 w-100">
+                    <div class="col-md-6">
+                      <ul class="list-unstyled">
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Demande de Devis
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Support Client
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Assistance Technique
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Rendez-vous
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Service Commercial
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <ul class="list-unstyled">
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Localisation et Accès
+                          </a>
+                        </li>
+                        <li style={{ marginTop: 10 }}>
+                          <a
+                            href="#"
+                            style={{
+                              color: "#000",
+                              fontWeight: "400",
+                              fontSize: 15,
+                            }}
+                          >
+                            Foire aux Questions (FAQ)
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </ul>
               </li>
             </ul>
@@ -492,77 +734,5 @@ export default function Navbar() {
         </div>
       </nav>
     </>
-    // <>
-    //   <header id="site_header" className={`${isMenuOpen ? "show-menu" : ""}`}>
-    //     <div className="container navbar navbar-expand-lg navbar-light">
-    //       <a className="navbar-brand" href="/">
-    //         <img style={{ width: 200 }} src={Logo} alt="Logo" />
-    //       </a>
-
-    //       <button
-    //         className="navbar-toggler"
-    //         type="button"
-    //         data-bs-toggle="collapse"
-    //         data-bs-target="#navbarNav"
-    //         aria-controls="navbarNav"
-    //         aria-expanded={isMenuOpen}
-    //         aria-label="Toggle navigation"
-    //         onClick={toggleMenu} // Toggle menu on button click
-    //       >
-    //         {menuIcon}
-    //       </button>
-
-    //       <div
-    //         className={`collapse navbar-collapse justify-content-end ${
-    //           isMenuOpen ? "show" : ""
-    //         }`}
-    //         id="navbarNav"
-    //       >
-    //         <ul className="navbar-nav">
-    //           <li className="nav-item dropdown"> {/* Add dropdown class */}
-    //             <Link
-    //               activeClass="active"
-    //               to="home"
-    //               spy={true}
-    //               smooth={true}
-    //               className="nav-link dropdown-toggle" // Use dropdown-toggle for hover
-    //               data-bs-toggle="dropdown" // Add data-bs-toggle attribute
-    //               aria-expanded="false" // Set initial expanded state (optional)
-    //             >
-    //               {t("navbar.company")}
-    //             </Link>
-    //             <ul className="dropdown-menu">
-    //               <li>
-    //                 <a href="#">Sous-menu 1</a>
-    //               </li>
-    //               <li>
-    //                 <a href="#">Sous-menu 2</a>
-    //               </li>
-    //               <li>
-    //                 <a href="#">Sous-menu 3</a>
-    //               </li>
-    //             </ul>
-    //           </li>
-    //           <li className="nav-item">
-    //             <Link to="about" spy={true} smooth={true} className="nav-link">
-    //               {t("navbar.service")}
-    //             </Link>
-    //           </li>
-    //           <li className="nav-item">
-    //             <Link to="services" spy={true} smooth={true} className="nav-link">
-    //               {t("navbar.sector")}
-    //             </Link>
-    //           </li>
-    //           <li className="nav-item">
-    //             <Link to="contact" spy={true} smooth={true} className="nav-link">
-    //               {t("navbar.contact")}
-    //             </Link>
-    //           </li>
-    //         </ul>
-    //         {/* Include LanguageSelector component here */}
-    //       </div>
-    //     </div>
-    //   </header>
-    // </>
   );
 }
