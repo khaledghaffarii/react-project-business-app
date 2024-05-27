@@ -43,6 +43,12 @@ export default function About() {
     // vertical: deviceInfo.isMobile ? true : false,
     // verticalSwiping: deviceInfo.isMobile ? true : false,
   };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <section id="about">
@@ -336,6 +342,7 @@ export default function About() {
                     </p>
                   </Col>
                   <Button
+                    onClick={scrollToTop}
                     style={{
                       textAlign: "left",
                       color: "black",
