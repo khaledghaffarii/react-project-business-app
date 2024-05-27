@@ -48,9 +48,9 @@
     .title {
       width: 100%;
       font-size: 3rem;
-      line-height: 8rem;
+
       font-weight: 400;
-      margin-bottom: 1rem;
+      margin-bottom: 5rem;
       text-transform: uppercase;
 
       & span {
@@ -155,5 +155,46 @@
   }
   50% {
     transform: translate(-10px, -10px);
+  }
+}
+.description,
+.btn_wrapper {
+  opacity: 0;
+  transform: translateY(100px);
+  animation: slideUp 1s forwards;
+}
+
+.description {
+  animation: slideUp 1s forwards, beat 1s infinite alternate;
+  animation-delay: 0.5s;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.btn_wrapper {
+  animation-delay: 1s;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes beat {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
   }
 }

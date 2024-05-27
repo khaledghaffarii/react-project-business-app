@@ -1,11 +1,10 @@
 /* About CSS */
 #about {
-  padding: 3rem 0 6rem;
   background: url("../../assets/about/layer.png") no-repeat center center;
   background-size: cover;
 
   @media (max-width: 992px) {
-    padding: 3rem 0;
+    padding: 5rem 20;
   }
 
   .title_headling {
@@ -13,23 +12,15 @@
     max-width: 50rem;
     margin: auto;
 
-    & h3 {
-      font-size: 2.5rem;
-      line-height: 3.214rem;
-      font-weight: 700;
-      color: var(--white-color);
-      margin-bottom: 0;
-
+    & h1 {
       @media (max-width: 767px) {
         font-size: 1.8rem;
-        line-height: 2.8rem;
       }
     }
 
     & p {
-      font-size: 1.214rem;
-      line-height: 2rem;
-      color: var(--font-color);
+      @media (max-width: 767px) {
+      }
     }
   }
 
@@ -42,6 +33,7 @@
 
     @media (max-width: 992px) {
       justify-content: center;
+      display: block;
     }
 
     @media (max-width: 767px) {
@@ -49,13 +41,11 @@
     }
 
     .about_box {
-      width: calc(100% / 3 - 1rem);
       padding: 1rem;
       box-sizing: border-box;
       text-align: center;
 
       @media (max-width: 992px) {
-        width: 50%;
       }
       @media (max-width: 767px) {
         width: 100%;
@@ -161,13 +151,11 @@
         border-radius: 2.1429rem;
         animation: bounce 2s ease-in-out infinite;
       }
-
       @media (max-width: 1024px) {
         .img_info__box {
           position: static;
         }
       }
-
       .img_info__box h6 {
         font-size: 1.4286rem;
         line-height: 2.1429rem;
@@ -311,4 +299,42 @@
       }
     }
   }
+}
+.picto_expertise {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  margin-bottom: 17px;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.expertise_home .picto_expertise {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: 0 0;
+  padding-top: 37px;
+  margin-bottom: 4px;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.desc_bloc_expertise,
+.desc_bloc_expertise p {
+  font-size: 17px;
+  line-height: 28px;
+  color: #19212b;
+
+  @media (max-width: 767px) {
+    width: "200vh";
+  }
+}
+.hover-effect {
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.hover-effect:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+  cursor: pointer;
 }

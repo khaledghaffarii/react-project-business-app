@@ -5,49 +5,227 @@ import {
   faLaptopCode,
   faChartBar,
   faCopy,
+  faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import videoSource from "../../assets/banner/video.mp4";
-
-const servicesData = [
-  {
-    icon: faLaptopCode,
-    title: "Cloud Computing",
-    description: "Lorem ipsum dolor sit amet sed consectetur adipisicing elit.",
-    number: "01",
-    color: "pramary",
-  },
-  {
-    icon: faChartBar,
-    title: "Business Strategy",
-    description: "Lorem ipsum dolor sit amet sed consectetur adipisicing elit.",
-    number: "02",
-    color: "pramary",
-  },
-  {
-    icon: faCopy,
-    title: "Reports Analysis",
-    description: "Lorem ipsum dolor sit amet sed consectetur adipisicing elit.",
-    number: "03",
-    color: "pramary",
-  },
-];
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
+import imageKhaled from "../../assets/khaled2.jpg";
+import imageHoussem from "../../assets/houssem.jpg";
+import imageMahdi from "../../assets/mahdi.jpg";
+import { faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { detectMobileOrTablet } from "../../utils";
+var deviceInfo = detectMobileOrTablet();
 
 const Services = () => {
   return (
-    <div id="services">
-      <video
-        autoPlay
-        muted
-        loop
-        preload="auto"
-        id="video-background"
-        playsInline
-        src={videoSource}
-      >
-        Your browser does not support the video tag.
-      </video>
-
-      <div className="container">
+    <div
+      style={{
+        boxShadow:
+          "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        borderRadius: "8px",
+        border: "none",
+      }}
+    >
+      <Container>
+        <div style={{ paddingBottom: 20 }}>
+          <h2 className="" style={{ textAlign: "center", margin: 5 }}>
+            Parlez à un de nos experts
+          </h2>
+          <p className="text-center ">
+            Travaillez à distance avec une équipe où chacun, du développeur de
+            logiciels personnalisés au spécialiste UX/UI, est exceptionnel, et
+            intégrez-les dans vos processus pour gagner en efficacité.
+          </p>
+        </div>
+        {deviceInfo.isMobile && (
+          <Container className="py-5">
+            <Row>
+              {expertsData.map((expert) => (
+                <React.Fragment key={expert.id}>
+                  <Card
+                    style={{
+                      boxShadow:
+                        "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                      borderRadius: "8px",
+                      border: "none",
+                      height: 160,
+                      paddingBottom: 50,
+                    }}
+                    border="light"
+                    className="mb-4 hover-effect"
+                  >
+                    <Card.Body>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Image
+                          src={expert.image}
+                          style={{
+                            borderRadius: "50%",
+                            width: 50,
+                            height: 50,
+                          }}
+                          className="m-2"
+                        />
+                        <div style={{ marginLeft: 10 }}>
+                          <Card.Title style={{ width: 150 }}>
+                            {expert.name}
+                          </Card.Title>
+                          <div className="d-block mb-2">
+                            <Card.Text
+                              style={{
+                                fontWeight: "500",
+                              }}
+                            >
+                              {expert.position}
+                            </Card.Text>
+                            <a
+                              href={expert.linkedin}
+                              target="_blank"
+                              className="me-2"
+                            >
+                              <FontAwesomeIcon
+                                icon={faLinkedinIn}
+                                size="lg"
+                                color="#0a66c2"
+                              />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </React.Fragment>
+              ))}
+            </Row>
+          </Container>
+        )}
+        <Row className="d-md-flex d-none" style={{ width: "250vh" }}>
+          <Col md={8}>
+            <Row className="flex-column w-100">
+              <Col>
+                <Row className="mb-5">
+                  <Col xs={3}>
+                    <strong>Emplacement du bureau</strong>
+                  </Col>
+                  <Col xs={3}>
+                    <strong>Expert des ventes</strong>
+                  </Col>
+                  <Col xs={3}>
+                    <strong>Position</strong>
+                  </Col>
+                  <Col xs={3} className="text-center">
+                    <strong> </strong>
+                  </Col>
+                </Row>
+              </Col>
+              {expertsData.map((expert) => (
+                <React.Fragment key={expert.id}>
+                  <Col className="mb-4">
+                    <Card
+                      border="light"
+                      style={{ backgroundColor: "rgba(255, 255, 255, 0.6)" }}
+                    >
+                      <Card.Body>
+                        <Row>
+                          <Col xs={3} className="align-self-center">
+                            <Card.Text>
+                              <FontAwesomeIcon
+                                icon={faMapMarkerAlt}
+                                className="me-2"
+                              />
+                              Tunisie
+                            </Card.Text>
+                          </Col>
+                          <Col xs={3}>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Image
+                                src={expert.image}
+                                style={{
+                                  borderRadius: "50%",
+                                  width: 50,
+                                  height: 50,
+                                }}
+                                className="m-2"
+                              />
+                              <div style={{ marginLeft: 10 }}>
+                                <Card.Title style={{ width: 150 }}>
+                                  {expert.name}
+                                </Card.Title>
+                                <div className="d-flex mb-2">
+                                  <a
+                                    href={expert.linkedin}
+                                    target="_blank"
+                                    className="me-2"
+                                  >
+                                    <FontAwesomeIcon
+                                      icon={faLinkedinIn}
+                                      size="lg"
+                                      color="#0a66c2"
+                                    />
+                                  </a>
+                                  {/* <a href={expert.twitter} target="_blank">
+                                    <FontAwesomeIcon
+                                      icon={faTwitter}
+                                      size="lg"
+                                    />
+                                  </a> */}
+                                </div>
+                              </div>
+                            </div>
+                          </Col>
+                          <Col xs={3} className=" align-self-center">
+                            <Card.Text
+                              style={{
+                                fontWeight: "500",
+                              }}
+                            >
+                              {expert.position}
+                            </Card.Text>
+                          </Col>
+                          <Col
+                            style={{
+                              textAlign: "center",
+                            }}
+                            xs={3}
+                            className="text-right align-self-center"
+                          >
+                            <Button
+                              variant="link"
+                              style={{
+                                fontWeight: "bold",
+                                textDecorationLine: "none",
+                                color: "#000",
+                              }}
+                            >
+                              Demander une rencontre
+                            </Button>
+                          </Col>
+                        </Row>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                  <hr style={{ margin: "0", borderTop: "1px solid #dee2e6" }} />
+                </React.Fragment>
+              ))}
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+      {/* <div className="container">
         <div className="title_headling">
           <h3 style={{ color: "#fff" }}>
             What's Services We Are Offering to Our Customers
@@ -79,9 +257,38 @@ const Services = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
+const expertsData = [
+  {
+    id: 2,
+    name: "Ksair mahdi",
+    image: imageMahdi,
+    location: "Tunisie",
+    position: "Directeur Général",
+    linkedin: "https://www.linkedin.com/in/pascal-cochard/",
+    twitter: "https://twitter.com/pascalcochard",
+  },
+  {
+    id: 1,
+    name: "Ghaffari khaled",
+    image: imageKhaled,
+    location: "Tunisie",
+    position: "Directeur Technique",
+    linkedin: "https://www.linkedin.com/in/pascal-cochard/",
+    twitter: "https://twitter.com/pascalcochard",
+  },
 
+  {
+    id: 3,
+    name: "Felli houssem eddine",
+    image: imageHoussem,
+    location: "Tunisie",
+    position: "Directeur des opérations",
+    linkedin: "https://www.linkedin.com/in/pascal-cochard/",
+    twitter: "https://twitter.com/pascalcochard",
+  },
+];
 export default Services;
