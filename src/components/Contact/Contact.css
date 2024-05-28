@@ -94,4 +94,15 @@
       }
     }
   }
+  .custom-modal .modal-dialog {
+    height: 80vh; /* Adjust this value as needed */
+  }
+
+  .custom-modal .modal-content {
+    height: 100%; /* Make sure the content fills the dialog */
+  }
+
+  .custom-modal .modal-body {
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
 }

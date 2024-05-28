@@ -34,6 +34,7 @@ body {
   font-size: 14px;
   font-family: var(--primary-font);
   background-color: var(--bg-color);
+  overflow-x: hidden;
 }
 
 /* Custom Scrollbar */

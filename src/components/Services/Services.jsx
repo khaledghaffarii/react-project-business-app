@@ -24,12 +24,14 @@ var deviceInfo = detectMobileOrTablet();
 const Services = () => {
   return (
     <div
-      style={{
-        boxShadow:
-          "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-        borderRadius: "8px",
-        border: "none",
-      }}
+      style={
+        {
+          // boxShadow:
+          //   "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+          // borderRadius: "8px",
+          // border: "none",
+        }
+      }
     >
       <Container>
         <div style={{ paddingBottom: 20 }}>
@@ -200,15 +202,15 @@ const Services = () => {
                             style={{
                               textAlign: "center",
                             }}
-                            xs={3}
-                            className="text-right align-self-center"
+                            xs={2}
+                            className=" align-self-center"
                           >
                             <Button
-                              variant="link"
+                              variant="warning"
                               style={{
                                 fontWeight: "bold",
                                 textDecorationLine: "none",
-                                color: "#000",
+                                //color: "#000",
                               }}
                             >
                               Demander une rencontre
@@ -264,7 +266,7 @@ const Services = () => {
 const expertsData = [
   {
     id: 2,
-    name: "Ksair mahdi",
+    name: "Ksair Mahdi",
     image: imageMahdi,
     location: "Tunisie",
     position: "Directeur Général",
@@ -273,7 +275,7 @@ const expertsData = [
   },
   {
     id: 1,
-    name: "Ghaffari khaled",
+    name: "Ghaffari Khaled",
     image: imageKhaled,
     location: "Tunisie",
     position: "Directeur Technique",
@@ -283,7 +285,7 @@ const expertsData = [
 
   {
     id: 3,
-    name: "Felli houssem eddine",
+    name: "Felly Houssem Eddine",
     image: imageHoussem,
     location: "Tunisie",
     position: "Directeur des opérations",

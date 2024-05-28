@@ -31,6 +31,7 @@ export default function Navbar() {
   return (
     <>
       <nav
+        style={{ height: !deviceInfo.isMobile && 100 }}
         id="site_header"
         className={`${isMenuOpen ? "show-menu" : ""}`}
         class="navbar navbar-expand-lg bg-light "
@@ -70,7 +71,7 @@ export default function Navbar() {
                   class="dropdown-menu custom-dropdown-menu"
                   aria-labelledby="navbarDropdown"
                 >
-                  <li class="dropdown-header d-none d-md-flex ">
+                  <li class="dropdown-header d-none d-md-flex  ">
                     <div
                       style={{
                         display: "flex",
@@ -80,7 +81,7 @@ export default function Navbar() {
                       class="d-flex "
                     >
                       <h5
-                        class="mb-0"
+                        class="mb-0 "
                         style={{
                           alignItems: "left",
                           margin: 15,

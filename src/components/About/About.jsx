@@ -34,7 +34,7 @@ export default function About() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: deviceInfo.isMobile ? 1 : 3,
+    slidesToShow: deviceInfo.isMobile ? 1 : 5,
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
@@ -330,7 +330,7 @@ export default function About() {
               </Row>
             </Container>
             <div className="bg-white text-dark   w-100 mb-5">
-              <Container style={{ backgroundColor: "#fafafa" }}>
+              <Container style={{}}>
                 <Row>
                   <Col>
                     <p style={{ fontSize: 15 }}>
@@ -341,20 +341,20 @@ export default function About() {
                       personnalisés.
                     </p>
                   </Col>
-                  <Button
-                    onClick={scrollToTop}
-                    style={{
-                      textAlign: "left",
-                      color: "black",
-                      textDecorationLine: "none",
-                      fontWeight: "bold",
-                    }}
-                    className="hover-effect  "
-                    variant="link"
-                  >
-                    Calculez votre projet
-                  </Button>
                 </Row>
+                <Button
+                  onClick={scrollToTop}
+                  style={{
+                    textAlign: "left",
+                    color: "black",
+                    textDecorationLine: "none",
+                    fontWeight: "bold",
+                  }}
+                  className="hover-effect  "
+                  variant="warning"
+                >
+                  Calculez votre projet
+                </Button>
               </Container>
             </div>
           </div>
