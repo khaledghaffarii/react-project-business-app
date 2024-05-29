@@ -175,6 +175,12 @@
   animation-delay: 1s;
   margin-top: 20px;
 }
+.custom-input {
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0;
+  box-shadow: none;
+}
 
 .btn {
   padding: 10px 20px;

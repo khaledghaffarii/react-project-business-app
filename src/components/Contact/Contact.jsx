@@ -297,7 +297,7 @@ export default function Contact() {
               <Image src={ImageCapital} fluid />
             </Col>
             <Col md={5}>
-              <Image src={Logo} width={280} height={180} />
+              <Image src={Logo} width={120} height={80} />
               <h2 style={{ color: "#0473aa" }} className="text-left mt-4 mb-5 ">
                 Nous aimons ce que nous faisons
               </h2>
