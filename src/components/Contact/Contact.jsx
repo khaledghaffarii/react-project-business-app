@@ -13,14 +13,29 @@ import {
 } from "react-bootstrap";
 import Logo from "../../assets/logo/logo5.png";
 import ImageCapital from "../../assets/about/capitaldata.png";
-
+import image1 from "../../assets/contact/image1.jpg";
+import image2 from "../../assets/contact/image2.jpg";
+import image3 from "../../assets/contact/image3.jpg";
+import image4 from "../../assets/contact/image4.jpg";
+import image5 from "../../assets/contact/image5.jpg";
+import image6 from "../../assets/contact/image6.webp";
+import Slider from "react-slick";
 export default function Contact() {
   const [modal, setModal] = useState(false);
-
   const toggle = () => setModal(!modal);
   const [outsourcingModal, setOutsourcingModal] = useState(false);
-
   const toggleOutsourcingModal = () => setOutsourcingModal(!outsourcingModal);
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 2000,
+    swipeToSlide: true,
+  };
   return (
     <>
       <Modal show={modal} onHide={toggle} size="xl" animation={true}>
@@ -284,7 +299,7 @@ export default function Contact() {
               Amélioration continue du Système de Management de la Qualité (SMQ)
             </li>
           </ul>
-          <p>
+          <p style={{ marginBottom: 180 }}>
             Aujourd'hui, la part des services d'outsourcing offshore, représente
             39% de notre chiffre d'affaires.
           </p>
@@ -294,7 +309,14 @@ export default function Contact() {
         <Container className="mt-5">
           <Row className="justify-content-center">
             <Col md={6}>
-              <Image src={ImageCapital} fluid />
+              <Slider {...settings} style={{}}>
+                <Image src={ImageCapital} width={150} height={640} />
+                <Image src={image6} width={150} height={640} />
+                <Image src={image2} width={150} height={640} />
+                <Image src={image3} width={150} height={640} />
+                <Image src={image4} width={150} height={640} />
+                <Image src={image5} width={150} height={640} />
+              </Slider>
             </Col>
             <Col md={5}>
               <Image src={Logo} width={120} height={80} />
