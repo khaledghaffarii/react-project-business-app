@@ -75,8 +75,8 @@ export default function Home() {
             " CapitalData est un accompagnateur dans la transformation digitale 360",
           ],
           autoStart: true,
+          delay: 1,
           loop: true,
-          deleteSpeed: 1,
           skipAddStyles: true,
         }}
       />
