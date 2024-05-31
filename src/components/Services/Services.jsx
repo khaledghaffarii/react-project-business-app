@@ -341,7 +341,7 @@ const Services = () => {
 const expertsData = [
   {
     id: 2,
-    name: "Ksair Mahdi",
+    name: " Ksaïr Mahdi",
     image: imageMahdi,
     location: "Tunisie",
     position: "Directeur Général",
