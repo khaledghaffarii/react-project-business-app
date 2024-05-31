@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Blog.css";
 import BlogImage from "../../assets/blog/TextToImage_14_20240508.jpeg";
 import { detectMobileOrTablet } from "../../utils";
@@ -12,6 +12,17 @@ import {
   InputGroup,
 } from "react-bootstrap";
 export default function Blog() {
+  const circleStyle = {
+    backgroundColor: "lightgray",
+    borderRadius: "50%",
+    width: "30px",
+    height: "30px",
+    margin: "0 30px 0 0",
+    fontSize: "18px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
   var deviceInfo = detectMobileOrTablet();
   const [sector, setSector] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -33,6 +44,34 @@ export default function Blog() {
       nda,
     });
   };
+
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const stepsCount = 4; // Nombre total d'étapes
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentStep === stepsCount && !isFadingOut) {
+        setIsFadingOut(true);
+        setTimeout(() => {
+          setCurrentStep(0);
+          setIsFadingOut(false);
+        }, 1000); // Durée de l'animation de fade out
+      } else if (!isFadingOut) {
+        setCurrentStep((prevStep) => prevStep + 1);
+      }
+    }, 3000); // Changez l'étape toutes les 3 secondes
+
+    return () => clearInterval(interval);
+  }, [currentStep, isFadingOut]);
+
+  const getClassName = (step) => {
+    if (isFadingOut) return "fade-out";
+    if (currentStep === step) return "step";
+    if (currentStep < step) return "hidden";
+    return "";
+  };
+  console.log("🚀 ~ currentStep ~ currentStep:", currentStep);
   return (
     <>
       <section id="blog">
@@ -197,26 +236,33 @@ export default function Blog() {
               </Form>
             </Col>
             <Col md={6}>
-              <Container style={{ backgroundColor: "#fafafa" }}>
-                <h2 className="">Que se passe-t-il ensuite ?</h2>
+              <Container style={{ backgroundColor: "#ffff", height: 300 }}>
+                <h2
+                  className={
+                    currentStep === 0
+                      ? "hidden"
+                      : `list-group-item d-flex align-items-center pb-5 ${getClassName(
+                          1
+                        )}`
+                  }
+                >
+                  Que se passe-t-il ensuite ?
+                </h2>
                 <Row className="mt-5 w-100">
                   <Col md={7}>
-                    <ol className="">
-                      <li className="list-group-item d-flex align-items-center pb-5">
+                    <ol className={""}>
+                      <li
+                        className={
+                          currentStep === 0
+                            ? "hidden"
+                            : `list-group-item d-flex align-items-center pb-5 ${getClassName(
+                                1
+                              )}`
+                        }
+                      >
                         <Row className="justify-content-center">
                           <Col md={12} className="text-center">
-                            <div
-                              className="circle"
-                              style={{
-                                backgroundColor: "lightgray",
-                                borderRadius: "50%",
-                                width: "30px",
-                                height: "30px",
-                                margin: "0 30px 0 0",
-
-                                fontSize: "18px",
-                              }}
-                            >
+                            <div className="circle" style={circleStyle}>
                               1
                             </div>
                           </Col>
@@ -224,21 +270,18 @@ export default function Blog() {
                         Un professionnel vous contactera une fois les besoins de
                         votre entreprise analysés.
                       </li>
-                      <li className="list-group-item d-flex align-items-center pb-5">
+                      <li
+                        className={
+                          currentStep === 0 || currentStep === 1
+                            ? "hidden"
+                            : `list-group-item d-flex align-items-center pb-5 ${getClassName(
+                                2
+                              )}`
+                        }
+                      >
                         <Row className="justify-content-center">
                           <Col md={12} className="text-center">
-                            <div
-                              className="circle"
-                              style={{
-                                backgroundColor: "lightgray",
-                                borderRadius: "50%",
-                                width: "30px",
-                                height: "30px",
-                                margin: "0 30px 0 0",
-
-                                fontSize: "18px",
-                              }}
-                            >
+                            <div className="circle" style={circleStyle}>
                               2
                             </div>
                           </Col>
@@ -246,42 +289,41 @@ export default function Blog() {
                         Au besoin, nous signons une NDA pour garantir le respect
                         de votre vie privée.
                       </li>
-                      <li className="list-group-item d-flex align-items-center pb-5 w-100">
-                        <Row className="justify-content-center ">
-                          <Col md={12} className="text-center mr-5">
-                            <div
-                              className="circle"
-                              style={{
-                                backgroundColor: "lightgray",
-                                borderRadius: "50%",
-                                width: "30px",
-                                height: "30px",
-                                margin: "0 30px 0 0",
-
-                                fontSize: "18px",
-                              }}
-                            >
+                      <li
+                        className={
+                          currentStep === 0 ||
+                          currentStep === 1 ||
+                          currentStep === 2
+                            ? "hidden"
+                            : `list-group-item d-flex align-items-center pb-5 ${getClassName(
+                                3
+                              )}`
+                        }
+                      >
+                        <Row className="justify-content-center">
+                          <Col md={12} className="text-center">
+                            <div className="circle" style={circleStyle}>
                               3
                             </div>
                           </Col>
                         </Row>
                         Un agent avant-vente fournit une proposition de projet.
                       </li>
-                      <li className="list-group-item d-flex align-items-center pb-5 ">
+                      <li
+                        className={
+                          currentStep === 0 ||
+                          currentStep === 1 ||
+                          currentStep === 2 ||
+                          currentStep === 3
+                            ? "hidden"
+                            : `list-group-item d-flex align-items-center pb-5 ${getClassName(
+                                4
+                              )}`
+                        }
+                      >
                         <Row className="justify-content-center">
                           <Col md={12} className="text-center">
-                            <div
-                              className="circle"
-                              style={{
-                                backgroundColor: "lightgray",
-                                borderRadius: "50%",
-                                width: "30px",
-                                height: "30px",
-                                margin: "0 30px 0 0",
-
-                                fontSize: "18px",
-                              }}
-                            >
+                            <div className="circle" style={circleStyle}>
                               4
                             </div>
                           </Col>
@@ -292,14 +334,14 @@ export default function Blog() {
                       </li>
                     </ol>
                   </Col>
-                  <p className="mb-5">
-                    Ce site est protégé par reCAPTCHA et Google
-                    <a href="#">
-                      Politique de confidentialité et conditions d'utilisation
-                      Apple.
-                    </a>
-                  </p>
                 </Row>
+                {/* <p className="mb-5">
+                  Ce site est protégé par reCAPTCHA et Google
+                  <a href="#">
+                    Politique de confidentialité et conditions d'utilisation
+                    Apple.
+                  </a>
+                </p> */}
               </Container>
             </Col>
           </Row>

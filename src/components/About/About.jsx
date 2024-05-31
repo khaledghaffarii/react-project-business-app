@@ -67,7 +67,36 @@ export default function About() {
       behavior: "smooth",
     });
   };
+  const containerRef = useRef(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const cards = entry.target.querySelectorAll(".card");
+            cards.forEach((card, index) => {
+              card.classList.add("card-animated", `delay-${index + 1}`);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
   return (
     <>
       <section id="about">
@@ -391,7 +420,7 @@ export default function About() {
             </Slider>
           </div>
 
-          <Container className="py-5">
+          <Container ref={containerRef} className="py-5">
             <h2 className="text-center mb-5">
               Modèles de collaboration pour le développement de logiciels
             </h2>
@@ -399,6 +428,7 @@ export default function About() {
             <Row>
               <Col md={4}>
                 <Card
+                  className="mb-4 hover-effect card-container"
                   style={{
                     boxShadow:
                       "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
@@ -408,7 +438,6 @@ export default function About() {
                     paddingBottom: 50,
                   }}
                   border="light"
-                  className="mb-4 hover-effect"
                 >
                   <Card.Body>
                     <Card.Title>Augmentation du personnel</Card.Title>
@@ -431,10 +460,12 @@ export default function About() {
                       </Button>
                     </Card.Text>
                   </Card.Body>
+                  <div className="progress-line"></div>
                 </Card>
               </Col>
               <Col md={4}>
                 <Card
+                  className="mb-4 hover-effect card-container"
                   style={{
                     boxShadow:
                       "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
@@ -443,7 +474,6 @@ export default function About() {
                     height: 160,
                   }}
                   border="light"
-                  className="mb-4 hover-effect"
                 >
                   <Card.Body>
                     <Card.Title>Équipe dédiée</Card.Title>
@@ -454,10 +484,12 @@ export default function About() {
                       meilleurs résultats.
                     </Card.Text>
                   </Card.Body>
+                  <div className="progress-line"></div>
                 </Card>
               </Col>
               <Col md={4}>
                 <Card
+                  className="mb-4 hover-effect card-container"
                   style={{
                     boxShadow:
                       "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
@@ -466,7 +498,6 @@ export default function About() {
                     height: 160,
                   }}
                   border="light"
-                  className="mb-4 hover-effect"
                 >
                   <Card.Body>
                     <Card.Title>Livraison gérée</Card.Title>
@@ -476,6 +507,7 @@ export default function About() {
                       mettra en œuvre vos plans clé en main.
                     </Card.Text>
                   </Card.Body>
+                  <div className="progress-line"></div>
                 </Card>
               </Col>
             </Row>

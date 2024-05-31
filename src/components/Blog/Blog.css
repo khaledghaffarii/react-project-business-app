@@ -93,3 +93,36 @@
     box-shadow: none;
   }
 }
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.step {
+  animation: slideIn 1s forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade-out {
+  animation: slideOut 1s forwards;
+}

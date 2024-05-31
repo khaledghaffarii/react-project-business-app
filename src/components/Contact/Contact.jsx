@@ -20,6 +20,7 @@ import image4 from "../../assets/contact/image4.jpg";
 import image5 from "../../assets/contact/image5.jpg";
 import image6 from "../../assets/contact/image6.webp";
 import Slider from "react-slick";
+import { detectMobileOrTablet } from "../../utils";
 export default function Contact() {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -36,6 +37,7 @@ export default function Contact() {
     autoplaySpeed: 2000,
     swipeToSlide: true,
   };
+  var deviceInfo = detectMobileOrTablet();
   return (
     <>
       <Modal show={modal} onHide={toggle} size="xl" animation={true}>
@@ -309,14 +311,19 @@ export default function Contact() {
         <Container className="mt-5">
           <Row className="justify-content-center">
             <Col md={6}>
-              <Slider {...settings} style={{}}>
+              <Image
+                src={ImageCapital}
+                width={deviceInfo.isMobile ? 350 : 550}
+                height={deviceInfo.isMobile ? 440 : 640}
+              />
+              {/* <Slider {...settings} style={{}}>
                 <Image src={ImageCapital} width={150} height={640} />
                 <Image src={image6} width={150} height={640} />
                 <Image src={image2} width={150} height={640} />
                 <Image src={image3} width={150} height={640} />
                 <Image src={image4} width={150} height={640} />
                 <Image src={image5} width={150} height={640} />
-              </Slider>
+              </Slider> */}
             </Col>
             <Col md={5}>
               <Image src={Logo} width={120} height={80} />

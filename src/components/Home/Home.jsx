@@ -4,7 +4,7 @@ import { detectMobileOrTablet } from "../../utils";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import image1 from "../../assets/banner/image0.jpg";
+import image7 from "../../assets/banner/image7.jpg";
 import image2 from "../../assets/banner/image9.avif";
 
 import Typewriter from "typewriter-effect";
@@ -66,21 +66,21 @@ export default function Home() {
   };
 
   const slides = {
-    image: image1,
-    title: (
-      <Typewriter
-        options={{
-          strings: [
-            "Solutions innovantes pour votre entreprise. ",
-            " CapitalData est un accompagnateur dans la transformation digitale 360",
-          ],
-          autoStart: true,
-          delay: 1,
-          loop: true,
-          skipAddStyles: true,
-        }}
-      />
-    ),
+    image: image7,
+    title:
+      "Solutions innovantes pour votre entreprise. ",
+      // <Typewriter
+      //   options={{
+      //     strings: [
+      //       "Solutions innovantes pour votre entreprise. ",
+      //       " CapitalData est un accompagnateur dans la transformation digitale 360",
+      //     ],
+      //     autoStart: true,
+      //     delay: 1,
+      //     loop: true,
+      //     skipAddStyles: true,
+      //   }}
+      // />
     description: "Vous ne travaillerez JAMAIS SEUL.",
     buttonText: "Parlons de votre projet",
   };
@@ -302,7 +302,7 @@ export default function Home() {
       <div style={slideStyle}>
         <img
           className="banner_image"
-          src={image2}
+          src={image7}
           alt="banner"
           style={{
             width: "100%",
