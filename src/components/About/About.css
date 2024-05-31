@@ -1,7 +1,15 @@
 /* About CSS */
-#about {
+#about2 {
   background: url("../../assets/about/layer.png") no-repeat center center;
   background-size: cover;
+}
+#about {
+  background-image: url("https://files.sbcdnsb.com/images/4LqRZEhTvmWUDCT2RNrUng/content/1631203559/2091437/1200/macbook-air-on-desk.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* This ensures the background image scrolls with the content */
+  background-repeat: no-repeat;
+  padding: 50px 50px;
 
   @media (max-width: 992px) {
     padding: 5rem 20;
@@ -382,10 +390,14 @@
 }
 
 .card-animated {
-  opacity: 0;
-  animation: slideIn 0.5s forwards;
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
-
+.card-reset {
+  transform: translateY(100px);
+  opacity: 0;
+}
 .card-animated.delay-1 {
   animation-delay: 0.4s;
 }

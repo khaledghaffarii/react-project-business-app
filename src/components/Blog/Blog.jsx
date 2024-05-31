@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Blog.css";
 import BlogImage from "../../assets/blog/TextToImage_14_20240508.jpeg";
 import { detectMobileOrTablet } from "../../utils";
@@ -48,7 +48,47 @@ export default function Blog() {
   const [currentStep, setCurrentStep] = useState(0);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const stepsCount = 4; // Nombre total d'étapes
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const cards = entry.target.querySelectorAll(".card");
+          if (entry.isIntersecting) {
+            cards.forEach((card, index) => {
+              card.classList.remove("card-reset");
+              card.classList.add("card-animated", `delay-${index + 1}`);
+            });
+          } else {
+            cards.forEach((card) => {
+              card.classList.remove("card-animated");
+              card.classList.add("card-reset");
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
   useEffect(() => {
     const interval = setInterval(() => {
       if (currentStep === stepsCount && !isFadingOut) {
@@ -75,38 +115,10 @@ export default function Blog() {
   return (
     <>
       <section id="blog">
-        {/* <div className="container">
-          <div className="blog_wrapper">
-            <div className="blog_col">
-              <h3>WE HELP BUSINESSES LAUNCH, GROW AND SUCCEED</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. At,
-                corrupti odit? At iure facere, porro repellat officia quas,
-                dolores magnam assumenda soluta odit harum voluptate inventore
-                ipsa maiores fugiat accusamus eos nulla. Iure voluptatibus
-                explicabo officia.
-              </p>
-              <div className="btn_wrapper">
-                <a className="btn" href="/">
-                  Get Started
-                </a>
-              </div>
-            </div>
-            <div className="blog_col">
-              <div className="blog_image">
-                <img
-                  style={{ height: 400, width: 600 }}
-                  src={BlogImage}
-                  alt="Blog"
-                />
-              </div>
-            </div>
-          </div>
-        </div> */}
-
         <Container>
           <Row className="justify-content-center">
             <Col
+              ref={containerRef}
               style={{
                 boxShadow:
                   "0 4px 8px 0 rgba(0, 0, 0, 0), 0 1px 5px 0 rgba(0, 0, 0, 0.19)",
@@ -236,7 +248,13 @@ export default function Blog() {
               </Form>
             </Col>
             <Col md={6}>
-              <Container style={{ backgroundColor: "#ffff", height: 300 }}>
+              <Container
+                style={{
+                  backgroundColor: "#ffff",
+                  height: 550,
+                  maxHeight: 650,
+                }}
+              >
                 <h2
                   className={
                     currentStep === 0

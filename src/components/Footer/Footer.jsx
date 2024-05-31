@@ -48,7 +48,7 @@ export default function Footer() {
                 className="mb-3 mb-md-0 d-flex flex-md-column flex-row"
               >
                 <p className="">
-                  <strong>CONTACT US</strong>
+                  <strong>CONTACT</strong>
                 </p>
 
                 <ul className="list-unstyled">
@@ -134,7 +134,7 @@ export default function Footer() {
             <Row className="mt-3 text-center ">
               <Col>
                 <p className="text-center m-0">
-                  © 2023 CapitalData . All Rights Reserved. |{" "}
+                  © 2023 CapitalData . All Rights Reserved.
                   <a href="#" className="text-light">
                     Privacy Policy
                   </a>

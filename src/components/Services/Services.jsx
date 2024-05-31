@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Services.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -22,6 +22,47 @@ import { detectMobileOrTablet } from "../../utils";
 var deviceInfo = detectMobileOrTablet();
 
 const Services = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const cards = entry.target.querySelectorAll(".card");
+          if (entry.isIntersecting) {
+            cards.forEach((card, index) => {
+              card.classList.remove("card-reset");
+              card.classList.add("card-animated", `delay-${index + 1}`);
+            });
+          } else {
+            cards.forEach((card) => {
+              card.classList.remove("card-animated");
+              card.classList.add("card-reset");
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
   return (
     <div
       style={
@@ -33,6 +74,34 @@ const Services = () => {
         }
       }
     >
+      <div className="bg-white text-dark w-100 mb-5">
+        <Container>
+          <Row>
+            <Col>
+              <p style={{ fontSize: 15 }}>
+                <span style={{ fontWeight: "bold" }}>CapitalData</span> a
+                réalisé de nombreux projets informatiques et propose une
+                estimation détaillée de votre initiative informatique dans le
+                cadre de nos services de développement de logiciels
+                personnalisés.
+              </p>
+            </Col>
+          </Row>
+          <Button
+            onClick={scrollToTop}
+            style={{
+              textAlign: "left",
+              color: "black",
+              textDecorationLine: "none",
+              fontWeight: "bold",
+            }}
+            className="hover-effect"
+            variant="warning"
+          >
+            Calculez votre projet
+          </Button>
+        </Container>
+      </div>
       <Container>
         <div style={{ paddingBottom: 20 }}>
           <h2 className="" style={{ textAlign: "center", margin: 5 }}>
@@ -110,7 +179,11 @@ const Services = () => {
             </Row>
           </Container>
         )}
-        <Row className="d-md-flex d-none" style={{ width: "250vh" }}>
+        <Row
+          ref={containerRef}
+          className="d-md-flex d-none"
+          style={{ width: "250vh" }}
+        >
           <Col md={8}>
             <Row className="flex-column w-100">
               <Col>
@@ -133,6 +206,7 @@ const Services = () => {
                 <React.Fragment key={expert.id}>
                   <Col className="mb-4">
                     <Card
+                      className="mb-4 hover-effect card-container card-reset"
                       border="light"
                       style={{ backgroundColor: "rgba(255, 255, 255, 0.6)" }}
                     >
@@ -227,6 +301,7 @@ const Services = () => {
           </Col>
         </Row>
       </Container>
+
       {/* <div className="container">
         <div className="title_headling">
           <h3 style={{ color: "#fff" }}>

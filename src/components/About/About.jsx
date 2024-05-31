@@ -73,12 +73,17 @@ export default function About() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const cards = entry.target.querySelectorAll(".card");
           if (entry.isIntersecting) {
-            const cards = entry.target.querySelectorAll(".card");
             cards.forEach((card, index) => {
+              card.classList.remove("card-reset");
               card.classList.add("card-animated", `delay-${index + 1}`);
             });
-            observer.unobserve(entry.target);
+          } else {
+            cards.forEach((card) => {
+              card.classList.remove("card-animated");
+              card.classList.add("card-reset");
+            });
           }
         });
       },
@@ -99,7 +104,7 @@ export default function About() {
   }, []);
   return (
     <>
-      <section id="about">
+      <section id="about2">
         <div className="container ">
           <div className="title_headling">
             {/* <h1 style={{ fontSize: "5rem", margin: 20 }}>Expertise</h1> */}
@@ -419,129 +424,103 @@ export default function About() {
               </div>
             </Slider>
           </div>
-
-          <Container ref={containerRef} className="py-5">
-            <h2 className="text-center mb-5">
-              Modèles de collaboration pour le développement de logiciels
-            </h2>
-
-            <Row>
-              <Col md={4}>
-                <Card
-                  className="mb-4 hover-effect card-container"
-                  style={{
-                    boxShadow:
-                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                    borderRadius: "8px",
-                    border: "none",
-                    height: 160,
-                    paddingBottom: 50,
-                  }}
-                  border="light"
-                >
-                  <Card.Body>
-                    <Card.Title>Augmentation du personnel</Card.Title>
-                    <Card.Text>
-                      CapitalData soumettra les CV les plus adaptés des experts
-                      en technologie possédant les compétences et les
-                      connaissances nécessaires pour réussir afin d'augmenter
-                      votre équipe.
-                      <Button
-                        style={{
-                          textAlign: "left",
-                          color: "black",
-                          textDecorationLine: "none",
-                          fontWeight: "bold",
-                        }}
-                        variant="link"
-                        href="#"
-                      >
-                        Voir plus →
-                      </Button>
-                    </Card.Text>
-                  </Card.Body>
-                  <div className="progress-line"></div>
-                </Card>
-              </Col>
-              <Col md={4}>
-                <Card
-                  className="mb-4 hover-effect card-container"
-                  style={{
-                    boxShadow:
-                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                    borderRadius: "8px",
-                    border: "none",
-                    height: 160,
-                  }}
-                  border="light"
-                >
-                  <Card.Body>
-                    <Card.Title>Équipe dédiée</Card.Title>
-                    <Card.Text>
-                      En embauchant une équipe dédiée et en conservant un
-                      contrôle total sur la prise de décision, vous pouvez
-                      guider ses efforts et vous concentrer sur l'obtention des
-                      meilleurs résultats.
-                    </Card.Text>
-                  </Card.Body>
-                  <div className="progress-line"></div>
-                </Card>
-              </Col>
-              <Col md={4}>
-                <Card
-                  className="mb-4 hover-effect card-container"
-                  style={{
-                    boxShadow:
-                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                    borderRadius: "8px",
-                    border: "none",
-                    height: 160,
-                  }}
-                  border="light"
-                >
-                  <Card.Body>
-                    <Card.Title>Livraison gérée</Card.Title>
-                    <Card.Text>
-                      Soulagez-vous du fardeau de la gestion quotidienne en
-                      confiant vos projets à un fournisseur de confiance qui
-                      mettra en œuvre vos plans clé en main.
-                    </Card.Text>
-                  </Card.Body>
-                  <div className="progress-line"></div>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
-          <div className="bg-white text-dark w-100 mb-5">
-            <Container>
-              <Row>
-                <Col>
-                  <p style={{ fontSize: 15 }}>
-                    <span style={{ fontWeight: "bold" }}>CapitalData</span> a
-                    réalisé de nombreux projets informatiques et propose une
-                    estimation détaillée de votre initiative informatique dans
-                    le cadre de nos services de développement de logiciels
-                    personnalisés.
-                  </p>
-                </Col>
-              </Row>
-              <Button
-                onClick={scrollToTop}
-                style={{
-                  textAlign: "left",
-                  color: "black",
-                  textDecorationLine: "none",
-                  fontWeight: "bold",
-                }}
-                className="hover-effect"
-                variant="warning"
-              >
-                Calculez votre projet
-              </Button>
-            </Container>
-          </div>
         </div>
+        <h2
+          className="text-center mb-5 "
+          style={{ color: "#0a0a0a", fontWeight: "bold" }}
+        >
+          Modèles de collaboration pour le développement de logiciels
+        </h2>
       </section>
+      <div id="about">
+        <Container style={{ opacity: 0.9 }} ref={containerRef} className="py-5">
+          <Row>
+            <Col md={4}>
+              <Card
+                className="mb-4 hover-effect card-container card-reset"
+                style={{
+                  boxShadow:
+                    "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                  borderRadius: "8px",
+                  border: "none",
+                  height: 160,
+                  paddingBottom: 50,
+                }}
+                border="light"
+              >
+                <Card.Body>
+                  <Card.Title>Augmentation du personnel</Card.Title>
+                  <Card.Text>
+                    CapitalData soumettra les CV les plus adaptés des experts en
+                    technologie possédant les compétences et les connaissances
+                    nécessaires pour réussir afin d'augmenter votre équipe.
+                    <Button
+                      style={{
+                        textAlign: "left",
+                        color: "black",
+                        textDecorationLine: "none",
+                        fontWeight: "bold",
+                      }}
+                      variant="link"
+                      href="#"
+                    >
+                      Voir plus →
+                    </Button>
+                  </Card.Text>
+                </Card.Body>
+                <div className="progress-line"></div>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card
+                className="mb-4 hover-effect card-container card-reset"
+                style={{
+                  boxShadow:
+                    "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                  borderRadius: "8px",
+                  border: "none",
+                  height: 160,
+                }}
+                border="light"
+              >
+                <Card.Body>
+                  <Card.Title>Équipe dédiée</Card.Title>
+                  <Card.Text>
+                    En embauchant une équipe dédiée et en conservant un contrôle
+                    total sur la prise de décision, vous pouvez guider ses
+                    efforts et vous concentrer sur l'obtention des meilleurs
+                    résultats.
+                  </Card.Text>
+                </Card.Body>
+                <div className="progress-line"></div>
+              </Card>
+            </Col>
+            <Col md={4}>
+              <Card
+                className="mb-4 hover-effect card-container card-reset"
+                style={{
+                  boxShadow:
+                    "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                  borderRadius: "8px",
+                  border: "none",
+                  height: 160,
+                }}
+                border="light"
+              >
+                <Card.Body>
+                  <Card.Title>Livraison gérée</Card.Title>
+                  <Card.Text>
+                    Soulagez-vous du fardeau de la gestion quotidienne en
+                    confiant vos projets à un fournisseur de confiance qui
+                    mettra en œuvre vos plans clé en main.
+                  </Card.Text>
+                </Card.Body>
+                <div className="progress-line"></div>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 }
