@@ -7,6 +7,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from "./LanguageSelector";
 import { detectMobileOrTablet } from "../../utils";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Use a descriptive state name
@@ -14,36 +15,47 @@ export default function Navbar() {
   const menuIcon = <FontAwesomeIcon icon={faBars} />;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const [isSticky, setIsSticky] = useState(false);
 
   // Consider using a dedicated scroll event library for a more robust solution
   useEffect(() => {
     const handleScroll = () => {
-      const isSticky = window.scrollY > 20;
-      // Potentially use a state variable for stickiness to avoid redundant calculations
-      document.body.classList.toggle("sticky", isSticky);
+      const scrolled = window.scrollY > 20; // Adjust threshold as needed
+      setIsSticky(scrolled);
     };
 
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const deviceInfo = detectMobileOrTablet();
+  const navigate = useNavigate();
+  const handlePersonnelClick = () => {
+    navigate("/company");
+  };
   return (
     <>
       <nav
         style={{ height: !deviceInfo.isMobile && 100 }}
         id="site_header"
-        className={`${isMenuOpen ? "show-menu" : ""}`}
-        class="navbar navbar-expand-lg bg-light "
+        className={`navbar navbar-expand-lg bg-light ${
+          isSticky ? "sticky" : ""
+        }`}
       >
         <div
           id="navbarNav"
-          className="container navbar navbar-expand-lg navbar-light"
+          className="container navbar navbar-expand-lg navbar-light "
           class="container-fluid"
         >
-          <a className="navbar-brand" href="/">
+          <button
+            style={{ background: "none", border: "none" }}
+            onClick={() => navigate("/")}
+            className="navbar-brand"
+            href="/"
+          >
             <img width="120" height="70" style={{}} src={Logo} alt="Logo" />
-          </a>
+          </button>
           <button
             class="navbar-toggler"
             type="button"
@@ -114,16 +126,18 @@ export default function Navbar() {
                           <strong>À propos de nous</strong>
                         </li>
                         <li style={{ marginTop: 10 }}>
-                          <a
-                            href="#"
+                          <button
                             style={{
                               color: "#000",
                               fontWeight: "400",
                               fontSize: 15,
+                              background: "none",
+                              border: "none",
                             }}
+                            onClick={() => navigate("/company")}
                           >
                             Notre Vision
-                          </a>
+                          </button>
                         </li>
                         <li style={{ marginTop: 10 }}>
                           <a

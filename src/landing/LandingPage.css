@@ -13,7 +13,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url("../assets/banner/modern-business-buildings-financial-district_1359-346.avif"); /* Image de fond */
+  /* background-image: url("../assets/banner/modern-business-buildings-financial-district_1359-346.avif"); */
   background-size: cover; /* Redimensionne l'image pour remplir la zone */
   background-position: center; /* Centre l'image */
   opacity: 0.6; /* Opacité de l'arrière-plan */

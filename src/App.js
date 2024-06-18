@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Services from "./components/Services/Services";
-import Blog from "./components/Blog/Blog";
-import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer/Footer";
+
 import LandingPage from "./landing/LandingPage";
+import HomePage from "./pages/HomePage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import Personnel from "./pages/personnel/Personnel";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import Company from "./pages/company/Company";
 
 function App() {
   const [showLandingPage, setShowLandingPage] = useState(true);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLandingPage(false);
@@ -20,21 +21,26 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
+
   return (
-    <div className="App">
-      {showLandingPage && <LandingPage />}
-      {!showLandingPage && (
-        <>
-          <Navbar />
-          <Home />
-          <About />
-          <Services />
-          <Blog />
-          <Contact />
-          <Footer />
-        </>
-      )}
-    </div>
+    <Router>
+      <div className="App">
+        {showLandingPage ? (
+          <LandingPage />
+        ) : (
+          <>
+            <Navbar />
+
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/personnel" element={<Personnel />} />
+              <Route path="/company" element={<Company />} />
+            </Routes>
+            <Footer />
+          </>
+        )}
+      </div>
+    </Router>
   );
 }
 

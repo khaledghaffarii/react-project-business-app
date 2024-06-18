@@ -1,0 +1,107 @@
+.background-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header-container {
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 0.99) 110%
+  );
+}
+.background-overlay {
+  /* background-image: url("https://www.bbplaw.attorney/wp-content/uploads/2022/06/corporate-governance.jpg"); */
+  background-size: cover;
+  background: #000;
+  width: 100%;
+  height: "100vh";
+  z-index: -1;
+}
+.annimation {
+  animation: slideUp 1s forwards, beat 1s infinite alternate;
+}
+.fixed-width-container {
+  margin-bottom: 50px;
+  /* Marge centrée horizontalement */
+}
+.content-container {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.content-container,
+.additional-info-container {
+  /* Largeur maximale de 80% */
+  margin: 0 auto; /* Marge centrée horizontalement */
+}
+
+.left-section {
+  padding: 20px;
+}
+
+.left-section h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.info-section {
+  margin-bottom: 20px;
+  padding: 30px;
+}
+
+.info-section h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.info-section p {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+a {
+  color: #000052;
+  text-decoration: none;
+}
+
+/* Additional Info Styles */
+.additional-info-container {
+  background-color: white;
+  margin-top: 50px;
+}
+
+.additional-info-container h2 {
+  color: #333;
+}
+
+.additional-info-container p {
+  color: #555;
+}
+
+.info-section h5 {
+  color: #000052;
+}
+
+.info-section p {
+  color: #666;
+}

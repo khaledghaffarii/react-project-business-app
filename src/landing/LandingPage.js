@@ -11,7 +11,7 @@ function LandingPage({}) {
   return (
     <div className="landing-page">
       <div className="background-image"></div>
-      <img src={Logo} alt="Company Logo" className="logo" />
+      <img src={Logo} alt="Company Logo" width={250} />
     </div>
   );
 }

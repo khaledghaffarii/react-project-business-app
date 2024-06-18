@@ -29,7 +29,14 @@ import strategy from "../../animation/strategy.json";
 import security from "../../animation/security.json";
 import marketing from "../../animation/marketing.json";
 import Typewriter from "typewriter-effect";
+import { useNavigate } from "react-router-dom";
+
 export default function About() {
+  const navigate = useNavigate();
+
+  const handlePersonnelClick = () => {
+    navigate("/personnel");
+  };
   var deviceInfo = detectMobileOrTablet();
   const [animatingSlide, setAnimatingSlide] = useState(0);
   // Icons
@@ -455,6 +462,7 @@ export default function About() {
                     technologie possédant les compétences et les connaissances
                     nécessaires pour réussir afin d'augmenter votre équipe.
                     <Button
+                      onClick={handlePersonnelClick}
                       style={{
                         textAlign: "left",
                         color: "black",
